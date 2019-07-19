@@ -1,0 +1,52 @@
+{
+  "name": "Selenium IDE",
+  "version": "1.0.0",
+  "description": "Selenium IDE",
+  "manifest_version": 2,
+  "homepage_url": "https://www.google.com/",
+  "chrome.commands": [
+    {
+      "id": "newCommand",
+      "name": "new command",
+      "type": "locator",
+      "docs": {
+        "description": "command description",
+        "target": { "name": "target", "value": "target description" },
+        "value": { "name": "value", "value": "value description" },
+       "action": "execute",
+       "command": {
+                  "command": "new command",
+                  "target": "target specified",
+                  "value": "value specified"
+                  },
+                     "options": {
+                                    "runId": "12345",
+                                    "testId": "1245",
+                                    "frameId":"the frame context",
+                                    "tabId": "the tab context",
+                                    "windowId": "the window context"
+                                }
+
+              }
+	}
+                 ],
+				 "background": {
+    "scripts": ["bg.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["play.js"]
+      //"run_at": "document_start"
+	  }
+  ],
+  "locators": [
+    {
+      "id": "locator"
+    }
+  ],
+  "dependencies": {
+    "selenium-webdriver": "3.6.0"
+  },
+  "page": "myFile.html"
+}
